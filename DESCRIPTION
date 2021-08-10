@@ -1,0 +1,18 @@
+Package: qualtricsMaker
+Version: 0.1.0
+Authors@R: person("David", "Stanley", , "dstanley@uoguelph.ca", role = c("aut", "cre"))
+Title: Create qualtrics surveys
+Description: Helps you to make surveys. Using R for qualtrics. You get it.
+URL: https://github.com/dstanley4/qualtricsMaker
+Depends:
+    R (>= 3.1.2)
+Imports:
+    tidyr,
+    dplyr,
+    utils
+Suggests: testthat,
+    knitr
+RoxygenNote: 7.1.1
+License: MIT License + file LICENSE
+LazyData: true
+Date: 2021-07-11
