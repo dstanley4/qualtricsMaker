@@ -38,23 +38,32 @@ make_survey <- function(survey_codebook, response_sep =";", break_after_question
         cur_question_type <- cur_question$type[1]
 
         if (cur_question_type == "MC") {
-          print("MC question")
-          out_question <- make_mc_question(cur_question, response_sep = response_sep)
+          out_question <- make_mc_question(cur_question,
+                                           response_sep = response_sep)
 
-        } else if (cur_question_type == "MCH") {
-          # [[Question:MC:SingleAnswer:Horizontal]]
-          # single answer horizontal
-          # [[Choices]]
-          # a
-          # b
-          # c
-        } else if (cur_question_type == "Dropdown") {
-          # [[Question:MC:Dropdown]]
-          # drop down
-          # [[Choices]]
-          # a
-          # b
-          # c
+        } else if (cur_question_type == "MC_horizonal") {
+          out_question <- make_mc_question(cur_question,
+                                           question_type_text = "MC:SingleAnswer:Horizontal",
+                                           response_sep = response_sep)
+        } else if (cur_question_type == "MC_multi_horizonal") {
+          out_question <- make_mc_question(cur_question,
+                                           question_type_text = "MC:MultipleAnswer:Horizontal",
+                                           response_sep = response_sep)
+
+        } else if (cur_question_type == "MC_select") {
+          out_question <- make_mc_question(cur_question,
+                                           question_type_text = "MC:Select",
+                                           response_sep = response_sep)
+
+        } else if (cur_question_type == "MC_multi_select") {
+          out_question <- make_mc_question(cur_question,
+                                           question_type_text = "MC:MultiSelect",
+                                           response_sep = response_sep)
+
+        } else if (cur_question_type == "MC_dropdown") {
+          out_question <- make_mc_question(cur_question,
+                                           question_type_text = "MC:Dropdown",
+                                           response_sep = response_sep)
         }
 
         if (is.null(out_block)) {
@@ -72,6 +81,9 @@ make_survey <- function(survey_codebook, response_sep =";", break_after_question
     }
     out_block <- NULL
   } #end loop for blocks
+
+  all_blocks <- c("[[AdvancedFormat]]\n\n", all_blocks)
+
   return(all_blocks)
 }
 
