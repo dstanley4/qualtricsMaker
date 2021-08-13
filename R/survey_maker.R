@@ -1,12 +1,12 @@
 #' Make a survey
 #' @param survey_codebook survey_codebook A dataframe with the question in required format
 #' @param response_sep The character for separating response options. Example is semicolon ";". Usage: Yes;No
-#' @param break_after_questions Add a pagebreak after this many questions
+#' @param filename Advanced Text Format filename. End file name with .txt. This is the file you import into Qualtrics.
 #' @return text for import
 #' @examples
 #' #make_survey
 #' @export
-make_survey <- function(survey_codebook, response_sep =";", break_after_questions = NULL){
+make_survey <- function(survey_codebook, response_sep =";", filename = NULL){
   survey <- survey_codebook
   block_names <- unique(survey$block)
 
@@ -26,7 +26,6 @@ make_survey <- function(survey_codebook, response_sep =";", break_after_question
 
     if (is_block_matrix == TRUE) {
       # matrix for block
-      print("Matrix Question")
       out_block <- make_matrix_question(cur_block,
                                          response_sep = response_sep)
       out_block <- unlist(out_block)
@@ -84,7 +83,11 @@ make_survey <- function(survey_codebook, response_sep =";", break_after_question
 
   all_blocks <- c("[[AdvancedFormat]]\n\n", all_blocks)
 
-  return(all_blocks)
+  if (!is.null(filename)) {
+    writeLines(all_blocks, filename)
+  }
+
+  return()
 }
 
 

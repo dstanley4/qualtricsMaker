@@ -4,14 +4,14 @@
 \alias{make_survey}
 \title{Make a survey}
 \usage{
-make_survey(survey_codebook, response_sep = ";", break_after_questions = NULL)
+make_survey(survey_codebook, response_sep = ";", filename = NULL)
 }
 \arguments{
 \item{survey_codebook}{survey_codebook A dataframe with the question in required format}
 
 \item{response_sep}{The character for separating response options. Example is semicolon ";". Usage: Yes;No}
 
-\item{break_after_questions}{Add a pagebreak after this many questions}
+\item{filename}{Advanced Text Format filename. End file name with .txt. This is the file you import into Qualtrics.}
 }
 \value{
 text for import
