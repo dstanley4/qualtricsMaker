@@ -87,7 +87,7 @@ make_survey <- function(survey_codebook, response_sep =";", filename = NULL){
     writeLines(all_blocks, filename)
   }
 
-  return()
+  return("")
 }
 
 
