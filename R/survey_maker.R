@@ -40,11 +40,11 @@ make_survey <- function(survey_codebook, response_sep =";", filename = NULL){
           out_question <- make_mc_question(cur_question,
                                            response_sep = response_sep)
 
-        } else if (cur_question_type == "MC_horizonal") {
+        } else if (cur_question_type == "MC_horizontal") {
           out_question <- make_mc_question(cur_question,
                                            question_type_text = "MC:SingleAnswer:Horizontal",
                                            response_sep = response_sep)
-        } else if (cur_question_type == "MC_multi_horizonal") {
+        } else if (cur_question_type == "MC_multi_horizontal") {
           out_question <- make_mc_question(cur_question,
                                            question_type_text = "MC:MultipleAnswer:Horizontal",
                                            response_sep = response_sep)
