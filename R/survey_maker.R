@@ -38,6 +38,7 @@ make_survey <- function(survey_codebook, response_sep =";", filename = NULL){
 
         if (cur_question_type == "MC") {
           out_question <- make_mc_question(cur_question,
+                                           question_type_text = "MC:SingleAnswer:Vertical",
                                            response_sep = response_sep)
 
         } else if (cur_question_type == "MC_horizontal") {
